@@ -1,0 +1,53 @@
+from abc import ABC, abstractmethod
+
+class polygon(ABC):
+    
+    @abstractmethod
+    def sides(self):
+        pass
+    @abstractmethod
+    def area(self):
+        pass
+    @abstractmethod
+    def perimeter(self):
+        pass
+    def figure(self):
+        return ("it is a 2-dimentional plane figure")
+        
+class rectangle(polygon):
+    def sides(self,length,breadth):
+        self.length=length
+        self.breadth=breadth
+        
+    def area(self):
+        return (f" area of rectangle {self.length*self.breadth}")
+        
+    def perimeter(self):
+        return (f"perimeter of rectangle{2*(self.length+self.breadth)}")
+    def extramethods(self):
+        return ("rectangle has 4 sides")
+        
+        
+    
+class triangle(polygon):
+    def sides(self,a,b,c):
+        self.a=a
+        self.b=b
+        self.c=c
+        
+    def area(self):
+        return (f" area of tiangle {(self.a*self.b)/2}")
+        
+    def perimeter(self):
+        return (f"perimeter of triangle{(self.a+self.b+self.c)/2}")
+    def extramethods(self):
+        return ("triangle has 4 sides")
+        
+rec=rectangle() 
+rec.sides(4,8)
+tri=triangle()
+tri.sides(4,8,4)
+        
+        
+for obj in[rec,tri]:
+    print(f"final result\n {obj.area() }\n {obj.perimeter() }\n{ obj.extramethods()}\n{obj.figure()}" )
