@@ -1,0 +1,30 @@
+def greet_decorator(func):
+    def wrapper():
+        print("transaction intiated!")   # Extra behavior (before)
+        func()                   # Original function
+        print("transaction completed") # Extra behavior (after)
+    return wrapper
+
+def say_name():
+    print("......Executing all steps of transaction.....")
+
+# Manually decorate
+decorated_func = greet_decorator(say_name)
+decorated_func()
+
+
+
+      '''Equivalent Using @ Syntax (Cleaner)'''
+'''You can write the same code more elegantly like this'''
+def greet_decorator(func): 
+    def wrapper():
+        print("transaction intiated!")   # Extra behavior (before)
+        func()                   # Original function
+        print("transaction completed") # Extra behavior (after)
+    return wrapper
+@greet_decorator
+def say_name():
+    print("......Executing all steps of transaction.....")
+
+say_name()
+      
